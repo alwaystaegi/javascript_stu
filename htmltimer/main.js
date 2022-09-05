@@ -2,15 +2,10 @@ const Time = new Date();
 let hh = Time.getHours();
 let mm = Time.getMinutes();
 let ss = Time.getSeconds();
-Time.getMilliseconds();
 const Timerid = setInterval(() => {
-  document.getElementsByTagName("span")[0].innerText = hh
-    .toString()
-    .padStart(2, "0");
-  document.getElementsByTagName("span")[2].innerText = (
-    "00" + mm.toString()
-  ).slice(-2);
-  document.getElementsByTagName("span")[4].innerText =
+  document.querySelector(".hour").innerText = hh.toString().padStart(2, "0");
+  document.querySelector(".min").innerText = ("00" + mm.toString()).slice(-2);
+  document.querySelector(".sec").innerText =
     ss.toString().length < 2 ? "0" + ss : ss;
   ss++;
 
