@@ -1,56 +1,3 @@
-//const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-//console.log(self);
-//?function callback
-// const call3Times = (callback) => {
-//   for (let i = 0; i < 3; i++)
-//     console.log(typeof callback);
-//     callback(i);
-// };
-// const myPrint = (idx) => {
-//   console.log(`${idx}번째 함수 호출`);
-// };
-// call3Times(myPrint);
-
-//*foreach callback
-// const sunmoonfn = (value, index, arr) => {
-//   console.log(`val=${value},idx=${index},arr=${arr}`);
-// };
-// const forEachResult = arr.forEach(sunmoonfn);
-// console.log(forEachResult);
-
-//*map callback
-// const sunmoonfn = (value, idx, arr) => {
-//   console.log(`[${idx}] ${value}`);
-//   return value * value;
-// };
-
-// const mapResult = arr.map(sunmoonfn);
-// console.log(mapResult);
-
-//*filter callback
-// const filterfn = (value, idx, arr) => {
-//   console.log(`[${idx}] ${value}`);
-//   return value % 2 === 0;
-// };
-// const filterResult = arr.filter(filterfn);
-// console.log(filterResult);
-
-//*filter by name with callback
-// const arr1 = [
-//   "강석원",
-//   "박종훈",
-//   "윤승준",
-//   "이슬비",
-//   "이정윤",
-//   "이종석",
-//   "이진우",
-//   "장효택",
-//   "정도현",
-//   "최도원",
-//   "최승준",
-// ];
-
 //*indexOf("val") : val이 첫번째로 등장하는 위치값을 반환,if 없다면 -1반환
 //*indexOf("val",num):num번째 위치부터 검색시작
 
@@ -85,8 +32,8 @@ const reducefn = (acc, cur, idx, src) => {
   console.log(`acc:${acc}/cur: ${cur} / idx: ${idx} . src: ${src}`);
   return acc + cur;
 };
-const result = arr.reduce(reducefn, 0);
-
+const result = arr.reduce(reducefn);
+//const result = arr.reduce(reducefn,0) //*reduce 2번째 인자: 누산기의 초기값을 2번째 인자로 설정
 const sum = (arr) => {
   res = 0;
   for (let i = 0; i < arr.length; i++) res += arr[i];

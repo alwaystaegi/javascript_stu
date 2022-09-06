@@ -1,0 +1,16 @@
+div {
+  color: rgba(255, 0, 0, 0.59);
+  font-size: 100px;
+  font-weight: lighter;
+  width: 200px;
+  height: 100px;
+  display: inline-block;
+  border: 10px solid navajowhite;
+  /* margin: 10px;
+  padding: 100px; */
+  border-radius: 100px 10px 100px 100px;
+  border-color: lightskyblue;
+  border-style: dotted;
+  border-spacing: 500px;
+  margin-top: 30px;
+}
