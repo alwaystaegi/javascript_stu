@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .divELE {
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const 원 = document.querySelector("#one");
+        const 투 = document.querySelector("#two");
+        const 쓰리 = document.querySelector("#three");
+        const 지금 = document.querySelector("#now");
+        원.addEventListener("click", () => {
+          console.log("원 클릭");
+          지금.appendChild(원.cloneNode());
+        });
+        투.addEventListener("click", () => {
+          console.log("투 클릭");
+        });
+        쓰리.addEventListener("click", () => {
+          console.log("쓰리 클릭");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="one" class="divELE">첫번째</div>
+    <div id="two" class="divELE">두번째</div>
+    <div id="three" class="divELE">세번째</div>
+    <div id="now" class="divELE">현재 클릭된 obj</div>
+    <div></div>
+  </body>
+</html>

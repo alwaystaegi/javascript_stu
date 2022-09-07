@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        #target{
+border:1px ridge;
+background-color: rgb(238, 238, 238);
+border-radius: 3px;
+border-style: inset;
+cursor:grab;
+        }
+    </style>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+    const 타겟=document.querySelector("#target");
+    const connect=document.querySelector(".connect");
+    const disconnect=document.querySelector(".disconnect");
+    const reset=document.querySelector(".reset");
+    const count=document.querySelector("#count");
+    const state=document.querySelector("#state");
+    const add=document.querySelector("#add");
+    const sub=document.querySelector("#sub");
+    const setvalue=function(){
+       if(now) state.textContent=`연결됨 ✅ ${now}`
+else state.textContent=`해제됨 ❌ ${now}`
+    }
+    let now=false;
+    타겟.addEventListener("click",()=>{
+        if(now){
+            count.textContent=Number(count.textContent)+1;
+        }
+    });
+    connect.addEventListener("click",()=>{
+        now=true;
+        setvalue();
+    })
+    disconnect.addEventListener("click",()=>{
+        now=false;
+       setvalue();
+    })
+
+    reset.addEventListener("click",()=>{
+now=false;
+setvalue();
+count.textContent='0';
+})
+    add.addEventListener("mousedown",()=>{
+
+    })
+
+})
+
+</script>
+</head>
+<body>
+    <button id="sub">-</button> 
+    <span id="target">날 눌러봐</span>
+        <button id="add">+</button>
+    <div>클릭횟수: <span id="count">0</span></div>
+    <button class="connect">이벤트 연결</button>
+    <button class="disconnect">이벤트 삭제</button>
+    <button class="reset">초기화</button>
+    <p>이벤트 연결 상태 : <span id="state">해제됨 ❌ false</span></p>
+</body>
+</html>
