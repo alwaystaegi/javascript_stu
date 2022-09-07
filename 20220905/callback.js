@@ -79,6 +79,7 @@
 
 // console.log(arr1);
 
+//*reduce
 const arr = [2, 4, 6, 8, 10];
 const reducefn = (acc, cur, idx, src) => {
   console.log(`acc:${acc}/cur: ${cur} / idx: ${idx} . src: ${src}`);

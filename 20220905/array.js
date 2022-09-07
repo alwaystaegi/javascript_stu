@@ -33,7 +33,7 @@ const reducefn = (acc, cur, idx, src) => {
   return acc + cur;
 };
 const result = arr.reduce(reducefn);
-
+//const result = arr.reduce(reducefn,0) //*reduce 2번째 인자: 누산기의 초기값을 2번째 인자로 설정
 const sum = (arr) => {
   res = 0;
   for (let i = 0; i < arr.length; i++) res += arr[i];

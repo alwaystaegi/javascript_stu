@@ -1,4 +1,4 @@
-//     //try catch finally
+//     try catch finally
 // const arr= 100;
 
 //     try{
