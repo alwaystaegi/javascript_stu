@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        #avatar{
+            position: relative;
+            top:-10px;
+            left:-10px;
+        }
+    </style>
+<script>
+    document.addEventListener("DOMContentLoaded",()=>{
+        avatar=document.querySelector("#avatar");
+
+        let posX=0;
+     let posY=0;
+
+    document.addEventListener("keydown",(key)=>{
+     console.log(key);
+        if(key.code=="Numpad3"){
+            posY+=10;
+            posX+=10;
+          };
+          if(key.code=="Numpad1"){
+            posY+=10;
+            posX-=10;
+          };
+          if(key.code=="Numpad7"){
+            posY-=10;
+            posX-=10;
+          };
+          if(key.code=="Numpad9"){
+            posY-=10;
+            posX+=10;
+          };
+if(key.key=="ArrowUp"){
+    posY-=10;
+}
+else if(key.key=="ArrowDown"){
+    posY+=10;
+}
+else if(key.key=="ArrowRight"){
+    posX+=10;
+
+}
+else if(key.key=="ArrowLeft"){
+    posX-=10;
+}
+if(posY<-10)posY=-10
+if(posY>500)posY=500
+if(posX>1087)posX=1087;
+if(posX<-10)posX=-10;
+avatar.style.top = `${posY}px`
+avatar.style.left=`${posX}px`;
+
+
+
+        })
+
+
+
+    })
+</script>
+</head>
+<body>
+    <span id="avatar" >😇</span>
+</body>
+</html>

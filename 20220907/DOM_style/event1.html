@@ -2,11 +2,18 @@
 <head>
     <style>
         #target{
-border:1px ridge;
+border:3px ridge;
 background-color: rgb(238, 238, 238);
 border-radius: 3px;
 border-style: inset;
 cursor:grab;
+font-size: 13px;
+padding: 2.5px 7px;
+        }
+        #target:hover{
+    background-color:(150,150,150);
+    border:5px ridge;
+
         }
     </style>
 <script>
@@ -24,6 +31,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 else state.textContent=`해제됨 ❌ ${now}`
     }
     let now=false;
+    타겟.addEventListener("mouseover",()=>{})
     타겟.addEventListener("click",()=>{
         if(now){
             count.textContent=Number(count.textContent)+1;
