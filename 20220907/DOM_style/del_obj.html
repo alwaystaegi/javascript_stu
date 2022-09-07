@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const del = document.querySelector("#two");
+        console.log(del);
+
+        const par = del.parentNode;
+        console.log(par);
+        del.parentNode.removeChild(del);
+        //  par.removeChild(del);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="one"></div>
+      <div id="two"></div>
+      <div id="three"></div>
+    </div>
+  </body>
+</html>

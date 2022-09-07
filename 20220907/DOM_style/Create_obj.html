@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+const header=document.createElement('container');
+console.log(header);
+header.textContent=`문서 객체 동적으로 생성하기11`;
+header.setAttribute('data-custom','사용자 정의 속성');
+header.style.color='white';
+header.style.backgroundColor='black';
+
+// const h2=document.createElement('container');
+// console.log(h2);
+// h2.textContent='문서 객체 동적으로 생성하기22';
+// h2.setAttribute('data-custom','사용자 정의 속성');
+// h2.style.color='white';
+// h2.style.backgroundColor='black';
+header.node
+h2=header.cloneNode(header);
+console.log(h2.nodeName)
+document.body.appendChild(h2);
+var a1=document.querySelector(".container #two");
+a1.appendChild(header);
+console.log(a1.parentNode);
+})
+</script>
+<body>
+    <div class="container">
+        <div id="one"></div>
+        <div id="two"></div>
+        <div id="three"></div>
+    </div>
+</body>
+</html>

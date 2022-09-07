@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<head>
+<!-- !DOMContentLoaded:모든 문서를 불러오고난 후 실행 -->
+    <script>
+document.addEventListener("DOMContentLoaded",()=>{
+// document.body.textContent="";
+//     document.body.innerHTML+="<div>선문대학교</div>"//!innerHTML 텍스트로 html 삽입
+// console.log(document.body)
+// const ss=document.querySelector(".sunmoon");
+// ss.innerHTML="<h1>ssss</h1>"
+// ss.className="super sas xzx";
+// console.log(ss)
+// console.log(ss.classList)
+
+// ss.addEventListener("click",()=>console.log("안녕하세요"))
+// const eleImage=document.querySelector(".cover");
+// console.log(eleImage);
+// eleImage.setAttribute("src","https://api.lorem.space/image/movie?w=150&h=220");
+// eleImage.getAttribute("src");
+
+
+const covers=document.querySelectorAll(".cover");
+console.log(covers);
+covers.forEach((image_s,idx)=>{
+    var val=Math.trunc(Math.random()*100);
+    var flag_C=false;
+    image_s.addEventListener("click",()=>{
+        if(flag_C==false){
+        setInterval(()=>{
+            var val=Math.trunc(100+Math.random()*20);
+            console.log("running");
+        image_s.setAttribute("src",`https://loremflickr.com/${val}/${val}`)
+   
+    },1*1000);
+flag_C=true;
+}
+    })
+    image_s.setAttribute("src",`https://loremflickr.com/100/100`)
+
+})
+// for(var i=0;i<5;i++){
+// covers[i].setAttribute("src",`https://api.lorem.space/image/game?w=${100+i*10}&h=${100+i*10}`)
+// }
+});
+</script>
+
+    <script>
+    console.log("hello")
+    </script>
+    <style>
+        .sunmoon{
+            color:blue;
+        }
+        #sun{
+            color:red
+        }
+        #moon{
+            color:blue
+        }
+        .sun{
+color:brown
+        }
+    #container{
+        background-color:aqua
+    }
+    #container span{
+font-weight:bold
+    }
+    #container #moon{
+        color:green
+    }
+    #container .sun{
+    border:2px solid;
+    margin:100px;
+    border-radius:100px;
+    }
+    </style>
+
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="sunmoon asan cheonan">divtag 입니다</div>
+    <!-- <div id="containet">
+    <span>안</span>
+    <span id="sun" name="first">녕</span>
+    <span id="moon" name="second">하</span>
+    <span class="sun" name="third">세</span>
+        <span class="sun" name="fourth">aa</span>
+        <span class="sun">bb</span>
+        <span class="sun">cc</span>
+        <span class="sun">dd</span>
+        <span class="sun">ee</span>
+    <span >요</span> -->
+
+<img src="" alt="" class="cover"/>
+
+<img src="" alt="" class="cover"/>
+
+<img src="" alt="" class="cover"/>
+
+<img src="" alt="" class="cover"/>
+
+<img src="" alt="" class="cover"/>
+    <script>
+        // var result = document.getElementById("moon");
+        // result.innerHTML;
+        
+        // result.style="color:black";
+        // const res=document.getElementsByClassName("sun");
+        // console.log(res[0].textContent)
+        // console.log(res[0])
+        // const spans=document.getElementsByTagName("span");
+        // const firsts=document.getElementsByName("first");
+        // var res2=document.querySelector("#moon");
+
+        // const suns=document.querySelectorAll(".sun");
+        // const div = document.querySelectorAll("div,span,.sun")
+        const div= document.querySelector(".sunmoon");
+        var count=0;
+        function lis(){
+
+            console.log(`${count} 번째 클릭했습니다.`);
+            count++;
+        }
+// div.addEventListener("mouseup",()=>{
+    
+//     console.log(`버튼을 뗏습니다.`);
+//     count++;
+// });
+// div.addEventListener("mousedown",()=>{
+
+//     console.log("버튼을 눌렀니다.!!!")
+// })
+
+// document.body.textContent="";
+// document.body.innerHTML+="<div>선문대학교</div>"//!innerHTML 텍스트로 html 삽입
+//        
+
+</script>
+</div>
+</body>
+</html> 
