@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+
+    const text=document.querySelector("#text");
+const count=document.querySelector("#count");
+let check=false;
+console.log(text);
+
+
+text.addEventListener("focus",()=>
+    {
+        if(null==id){
+       const id=setInterval(()=>{
+            count.textContent=text.value.length;
+console.log("세는중");
+
+        },100)
+        text.addEventListener("blur",()=>{
+    if(check){
+           clearInterval(id);
+            console.log("돌아가는중");
+            check=false;
+    }
+    else{}
+        })
+        check=true;
+
+      
+
+    }
+    }
+)
+
+
+
+
+})
+</script>
+
+
+</head>
+<body>
+    <h1> 글자 수 세기</h1>
+    <textarea id="text"></textarea>
+    <div id="count">0</div>
+</body>
+</html>

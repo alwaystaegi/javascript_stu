@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <title>Document</title>
+    <style>
+
+
+    </style>
+    <script>
+document.addEventListener("DOMContentLoaded",()=>{
+    const text= document.querySelector("#login");
+    const button_Login=document.querySelector("#submit");
+    const password=document.querySelector("#password");
+    text.addEventListener("keydown",(key)=>{
+        if(key.key=="Enter"){
+            console.log(text.value)
+        }
+        
+    })
+    button_Login.addEventListener("mousedown",()=>{
+
+        if(text.value==""){  
+            alert("아이디를 입력하세요")
+        }
+        else if(password.value==""){
+            alert("비밀번호를 입력하세요")
+        }
+        else{
+        console.log(text.value);
+        }
+
+        
+    })
+
+
+
+
+})
+</script>
+</head>
+<body>
+    <div id="loginForm">
+    <!-- <input id="login" type="text" placeholder="로그인 입력" maxlength="16"/> -->
+   <textarea name="ss" id="login" cols="30" rows="10"></textarea>
+   
+    <input type="password" id="password" placeholder="비밀번호 입력" maxlength="14">
+    <button id="submit">로그인  </button>
+</div>
+</body>
+</html>
