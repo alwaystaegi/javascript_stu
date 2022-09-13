@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const select = document.querySelector("select");
+      const result = document.querySelector("#select");
+      const button = document.querySelector("button");
+
+      button.addEventListener("click", () => {
+        result.textContent = `${select.selectedOptions[0].innerText}`;
+      });
+
+      //   select.addEventListener("change", (event) => {
+      //     const options = event.currentTarget.options;
+      //     const index = event.currentTarget.options.selectedIndex;
+      //     result.textContent = `${options[index].textContent}`;
+      //   });
+    });
+  </script>
+  <body>
+    <select>
+      <option>떡볶이</option>
+      <option>순대</option>
+      <option>오뎅</option>
+      <option>튀김</option>
+    </select>
+    <button>선택</button>
+    <p>선택: <span id="select"></span></p>
+  </body>
+</html>

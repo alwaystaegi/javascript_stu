@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const p = document.querySelector("p");
+      const input = document.querySelector("input");
+      const button = document.querySelector("button");
+      const checkbox = document.querySelector("#dd");
+      const savedValue = localStorage.getItem("input");
+      const sv2 = localStorage.getItem("#dd");
+
+      input.value = savedValue;
+
+      checkbox.addEventListener("click", (event) => {
+        console.log(event);
+        localStorage.setItem("#dd", checkbox.checked);
+        console.log(checkbox);
+      });
+      if (savedValue) {
+        console.log(savedValue);
+        p.textContent = `이전 실행 때의 마지막 값: ${savedValue}`;
+      }
+
+      console.log(sv2);
+      if (sv2 === "true") checkbox.checked = true;
+
+      window.addEventListener("click", (event) => {
+        const value = input.value;
+        console.log(JSON.stringify(document));
+        localStorage.setItem("input", JSON.stringify(document));
+        button.addEventListener("click", (event) => {
+          localStorage.clear();
+          input.value = "";
+        });
+      });
+    });
+  </script>
+  <body>
+    <p></p>
+    <button>지우기</button>
+    <input type="text" name="" id="" />
+    <input type="checkbox" id="dd" />
+  </body>
+</html>

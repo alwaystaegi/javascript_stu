@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>todolist</title>
+  </head>
+  <body>
+    <h1>할 일 목록</h1>
+    <input type="text" id="todo" />
+    <button id="add-button">추가하기</button>
+    <div id="todo-list"></div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.querySelector("#todo");
+      const todolist = document.querySelector("#todo-list");
+      const addButton = document.querySelector("#add-button");
+
+      // <!--! load todo localstorage의 데이터 불러오기-->
+      const loadTodo = () => {
+        let todoArr;
+        const temp = localStorage.getItem("todolist");
+        todoArr = temp ? JSON.parse(temp) : null;
+
+        todoArr.forEach((ele) => {
+          addTodo(ele.text, ele.checked);
+        });
+      };
+
+      // <!--! saveTodo : localstorage에 데이터 저장-->
+      const saveTodo = () => {
+        let todoArr = [];
+        todolist.childNodes.forEach((item, index) => {
+          const checkbox = item.querySelector("input");
+          const text = item.querySelector("span");
+          todoArr.push({ checked: checkbox.checked, text: text.textContent });
+        });
+        localStorage.setItem("todolist", JSON.stringify(todoArr));
+      };
+
+      //<!--! addTodo할 일 목록을 div로 추가하기 -->
+      const addTodo = (val, bool = false) => {
+        const item = document.createElement("div");
+        const checkbox = document.createElement("input");
+        const text = document.createElement("span");
+        const button = document.createElement("button");
+
+        item.appendChild(checkbox);
+        item.appendChild(text);
+        item.appendChild(button);
+
+        todolist.appendChild(item);
+        checkbox.type = "checkbox";
+        checkbox.className = "checkbox";
+        text.className = "text";
+        button.className = "button";
+        checkbox.addEventListener("change", (event) => {
+          item.style.textDecoration = event.target.checked
+            ? "line-through"
+            : "";
+          saveTodo();
+        });
+        if (bool === true) {
+          checkbox.checked = true;
+          item.style.textDecoration = "line-through";
+        }
+        text.textContent = val;
+
+        button.textContent = "❌";
+        button.addEventListener("click", () => removeTodo(item));
+
+        saveTodo();
+      };
+      const removeTodo = (item) => {
+        todolist.removeChild(item);
+        saveTodo();
+      };
+      const checkTodo = () => {
+        if (input.value.trim() === "") {
+          alert("할 일을 입력해주세요");
+          return;
+        }
+        addTodo(input.value);
+      };
+      addButton.addEventListener("click", () => checkTodo());
+      input.addEventListener("keyup", (event) => {
+        const ENTER = 13;
+        if (event.keyCode === ENTER) {
+          checkTodo();
+        }
+      });
+      loadTodo();
+    });
+  </script>
+</html>
