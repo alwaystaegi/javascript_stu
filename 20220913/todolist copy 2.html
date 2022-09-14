@@ -20,10 +20,10 @@
         let todoArr;
         const temp = localStorage.getItem("todolist");
         todoArr = temp ? JSON.parse(temp) : null;
-
-        todoArr.forEach((ele) => {
-          addTodo(ele.text, ele.checked);
-        });
+        if (todoArr)
+          todoArr.forEach((ele) => {
+            addTodo(ele.text, ele.checked);
+          });
       };
 
       // <!--! saveTodo : localstorage에 데이터 저장-->
@@ -50,7 +50,7 @@
 
         todolist.appendChild(item);
         checkbox.type = "checkbox";
-        checkbox.className = "checkbox";
+        checkbox.className = "checkboxFFFFFFFFFF";
         text.className = "text";
         button.className = "button";
         checkbox.addEventListener("change", (event) => {
@@ -80,7 +80,9 @@
           return;
         }
         addTodo(input.value);
+        input.value = "";
       };
+      //  <!-- todo  timstamp unix 시간으로 불러오기... date.now()-->
       addButton.addEventListener("click", () => checkTodo());
       input.addEventListener("keyup", (event) => {
         const ENTER = 13;

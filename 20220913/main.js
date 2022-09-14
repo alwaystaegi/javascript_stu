@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     checkbox.addEventListener("change", (event) => {
       item.style.textDecoration = event.target.checked ? "line-through" : "";
     });
-
     text.textContent = input.value;
 
     button.textContent = "제거하기";
