@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const startbutton = document.querySelector("#bt_start");
+      const stopbutton = document.querySelector("#bt_stop");
+      const resetbutton = document.querySelector("#bt_reset");
+      const time = document.querySelector("#time");
+
+      let runable = false;
+      const stopwatch = () => {
+        let hour = 0;
+        let min = 0;
+        let sec = 0;
+        let mis = 0;
+        hour.toFixed(2);
+        min.toFixed(2);
+        const temp = time.textContent.split(":");
+        for (let i = 0; i < temp.length; i++) {
+          if (4 === temp.length - i) hour = Number(temp[i]);
+          if (2 === temp.length - i) sec = Number(temp[i]);
+          if (1 === temp.length - i) mis = Number(temp[i]);
+          if (3 === temp.length - i) min = Number(temp[i]);
+        }
+        if (!runable) {
+          runable = true;
+          window.run = setInterval(() => {
+            mis++;
+            if (mis >= 100) {
+              mis -= 100;
+              sec += 1;
+              if (sec >= 60) {
+                sec -= 60;
+                min += 1;
+                if (min >= 60) {
+                  min -= 60;
+                  hour += 1;
+                }
+              }
+            }
+            if (hour > 0) {
+              time.textContent = `${hour.toString().padStart(2, "0")}:${min
+                .toString()
+                .padStart(2, "0")}:${sec.toString().padStart(2, "0")}:${mis
+                .toString()
+                .padStart(2, "0")}`;
+            } else if (min > 0) {
+              time.textContent = `${min.toString().padStart(2, "0")}:${sec
+                .toString()
+                .padStart(2, "0")}:${mis.toString().padStart(2, "0")}`;
+            } else {
+              time.textContent = `${sec.toString().padStart(2, "0")}:${mis
+                .toString()
+                .padStart(2, "0")}`;
+            }
+          }, 10);
+        }
+      };
+      const stop = () => {
+        clearInterval(window.run);
+        runable = false;
+      };
+
+      //<!--todo startbutton
+      startbutton.addEventListener("click", () => {
+        if (!runable) {
+          stopwatch();
+          runable = true;
+        }
+      });
+
+      //<!--todo stopbutton
+      stopbutton.addEventListener("click", () => {
+        stop();
+        runable = false;
+      });
+
+      //<!--todo reset button
+      resetbutton.addEventListener("click", () => {
+        time.textContent = "00:00";
+        if (true === runable) {
+          stop();
+          stopwatch();
+        }
+      });
+    });
+  </script>
+  <body>
+    <h1>Stopwatch</h1>
+    <div id="time">00:00</div>
+    <span>
+      <button id="bt_start">start</button>
+      <button id="bt_stop">stop</button>
+      <button id="bt_reset">reset</button>
+    </span>
+  </body>
+</html>

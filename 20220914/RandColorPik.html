@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <style>
+    div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: large;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const div = document.querySelector("div");
+      const getRandColor = () => {
+        const r = Math.trunc(Math.random() * 255)
+          .toString(16)
+          .padStart(2, "0")
+          .toUpperCase();
+        const g = Math.trunc(Math.random() * 255)
+          .toString(16)
+          .padStart(2, "0")
+          .toUpperCase();
+        const b = Math.trunc(Math.random() * 255)
+          .toString(16)
+          .padStart(2, "0")
+          .toUpperCase();
+
+        document.body.style.backgroundColor = `#${r}${g}${b}`;
+        div.textContent = `#${r}${g}${b}`;
+        if (
+          Number(`0x${r}`.toString(10)) +
+            Number(`0x${g}`.toString(10)) +
+            Number(`0x${b}`.toString(10)) >
+          (255 * 3) / 2
+        ) {
+          div.style.color = `rgb(0,0,0)`;
+        } else {
+          div.style.color = `rgb(255,255,255)`;
+        }
+      };
+      getRandColor();
+
+      document.addEventListener("keypress", (key) => {
+        if ("Space" === key.code) {
+          getRandColor();
+        }
+      });
+    });
+  </script>
+  <body>
+    <div>#000000</div>
+  </body>
+</html>

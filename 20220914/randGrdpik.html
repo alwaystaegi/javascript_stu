@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <style>
+    #right {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      font-size: large;
+    }
+    #left {
+      position: absolute;
+      top: 50%;
+      left: 80%;
+      font-size: large;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const right = document.querySelector("#right");
+      const left = document.querySelector("#left");
+      const getRandColor = () => {
+        const r = Math.trunc(Math.random() * 255)
+          .toString(16)
+          .padStart(2, "0")
+          .toUpperCase();
+        const g = Math.trunc(Math.random() * 255)
+          .toString(16)
+          .padStart(2, "0")
+          .toUpperCase();
+        const b = Math.trunc(Math.random() * 255)
+          .toString(16)
+          .padStart(2, "0")
+          .toUpperCase();
+
+        const lr = Math.trunc(Math.random() * 255)
+          .toString(16)
+          .padStart(2, "0")
+          .toUpperCase();
+        const lg = Math.trunc(Math.random() * 255)
+          .toString(16)
+          .padStart(2, "0")
+          .toUpperCase();
+        const lb = Math.trunc(Math.random() * 255)
+          .toString(16)
+          .padStart(2, "0")
+          .toUpperCase();
+
+        document.body.style.background = `linear-gradient(to left,#${r}${g}${b}
+        ,#${lr}${lg}${lb})`;
+
+        right.textContent = `#${r}${g}${b}`;
+        left.textContent = `#${lr}${lg}${lb}`;
+        if (
+          Number(`0x${r}`.toString(10)) +
+            Number(`0x${g}`.toString(10)) +
+            Number(`0x${b}`.toString(10)) >
+          (255 * 3) / 2
+        ) {
+          right.style.color = `rgb(0,0,0)`;
+        } else {
+          right.style.color = `rgb(255,255,255)`;
+        }
+        if (
+          Number(`0x${lr}`.toString(10)) +
+            Number(`0x${lg}`.toString(10)) +
+            Number(`0x${lb}`.toString(10)) >
+          (255 * 3) / 2
+        ) {
+          left.style.color = `rgb(0,0,0)`;
+        } else {
+          left.style.color = `rgb(255,255,255)`;
+        }
+      };
+
+      getRandColor();
+
+      document.addEventListener("keypress", (key) => {
+        if ("space" === key.code.toLowerCase()) {
+          getRandColor();
+        }
+      });
+    });
+  </script>
+  <body>
+    <div id="right">#000000</div>
+    <div id="left">#000000</div>
+  </body>
+</html>

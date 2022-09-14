@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <style>
+    #right {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      font-size: large;
+    }
+    #left {
+      position: absolute;
+      top: 50%;
+      left: 80%;
+      font-size: large;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // const right = document.querySelector("#right");
+
+      const setColor = (r, g, b, lr, lg, lb) => {
+        document.body.style.backgroundColor = `rgb(${r},${g},${b})`;
+
+        // right.textContent = `#${r`
+        //   .toString(16)
+        //   .padStart(2, "0")
+        //   .toUpperCase()}${g.toString(16).padStart(2, "0").toUpperCase()}${b
+        //   .toString(16)
+        //   .padStart(2, "0")
+        //   .toUpperCase()}`;
+        // left.textContent = `#${lr
+        //   .toString(16)
+        //   .padStart(2, "0")
+        //   .toUpperCase()}${lg.toString(16).padStart(2, "0").toUpperCase()}${lb
+        //   .toString(16)
+        //   .padStart(2, "0")
+        //   .toUpperCase()}`;
+      };
+
+      const getColor = () => {
+        let red = Math.trunc(Math.random() * 255);
+        let green = Math.trunc(Math.random() * 255);
+        let blue = Math.trunc(Math.random() * 255);
+        let redbool = false;
+        let greenbool = false;
+        let bluebool = false;
+        if (Math.random * 2 < 1) {
+          redbool = true;
+        }
+        if (Math.random * 2 < 1) {
+          greenbool = true;
+        }
+        if (Math.random * 2 < 1) {
+          bluebool = true;
+        }
+        window.time = setInterval(() => {
+          if (true === redbool) {
+            red += 1;
+            if (red == 255) redbool = false;
+          } else {
+            red -= 1;
+            if (red == 0) redbool = true;
+          }
+
+          if (true === greenbool) {
+            green += 1;
+            if (green == 255) greenbool = false;
+          } else {
+            green -= 1;
+            if (green == 0) greenbool = true;
+          }
+          if (true === bluebool) {
+            blue += 1;
+            if (blue == 255) bluebool = false;
+          } else {
+            blue -= 1;
+            if (blue == 0) bluebool = true;
+          }
+          setColor(red, green, blue);
+        }, 30);
+      };
+
+      getColor();
+
+      setInterval(() => {});
+      document.addEventListener("keypress", (key) => {
+        if ("Space" === key.code) {
+          clearInterval(window.time);
+          getColor();
+        }
+      });
+    });
+  </script>
+  <body>
+    <!-- <div id="right">#000000</div>
+    <div id="left">#000000</div> -->
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <style>
+    #right {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      font-size: large;
+    }
+    #left {
+      position: absolute;
+      top: 50%;
+      left: 80%;
+      font-size: large;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const right = document.querySelector("#right");
+      const left = document.querySelector("#left");
+
+      const setColor = (r, g, b, lr, lg, lb) => {
+        document.body.style.background = `linear-gradient(to left,rgb(${r},${g},${b})
+        ,rgb(${lr},${lg},${lb}))`;
+
+        // right.textContent = `#${r
+        //   .toString(16)
+        //   .padStart(2, "0")
+        //   .toUpperCase()}${g.toString(16).padStart(2, "0").toUpperCase()}${b
+        //   .toString(16)
+        //   .padStart(2, "0")
+        //   .toUpperCase()}`;
+        // left.textContent = `#${lr
+        //   .toString(16)
+        //   .padStart(2, "0")
+        //   .toUpperCase()}${lg.toString(16).padStart(2, "0").toUpperCase()}${lb
+        //   .toString(16)
+        //   .padStart(2, "0")
+        //   .toUpperCase()}`;
+      };
+
+      const getColor = () => {
+        let red = Math.trunc(Math.random() * 255);
+        let green = Math.trunc(Math.random() * 255);
+        let blue = Math.trunc(Math.random() * 255);
+        let leftRed = Math.trunc(Math.random() * 255);
+        let leftGreen = Math.trunc(Math.random() * 255);
+        let leftBlue = Math.trunc(Math.random() * 255);
+        let redbool = false;
+        let leftRedbool = false;
+        let greenbool = false;
+        let leftGreenbool = false;
+        let bluebool = false;
+        let leftBluebool = false;
+        if (Math.random * 2 < 1) {
+          redbool = true;
+          leftRedbool = true;
+        }
+        if (Math.random * 2 < 1) {
+          greenbool = true;
+          leftGreenbool = true;
+        }
+        if (Math.random * 2 < 1) {
+          bluebool = true;
+          leftBluebool = true;
+        }
+        setInterval(() => {
+          if (true === redbool) {
+            red += 1;
+            if (red == 255) redbool = false;
+          } else {
+            red -= 1;
+            if (red == 0) redbool = true;
+          }
+          if (true === leftRedbool) {
+            leftRed += 1;
+            if (leftRed == 255) leftRedbool = false;
+          } else {
+            leftRed -= 1;
+            if (leftRed == 0) leftRedbool = true;
+          }
+
+          if (true === greenbool) {
+            green += 1;
+            if (green == 255) greenbool = false;
+          } else {
+            green -= 1;
+            if (green == 0) greenbool = true;
+          }
+          if (true === leftGreenbool) {
+            leftGreen += 1;
+            if (leftGreen == 255) leftGreenbool = false;
+          } else {
+            leftGreen -= 1;
+            if (leftGreen == 0) leftGreenbool = true;
+          }
+
+          if (true === bluebool) {
+            blue += 1;
+            if (blue == 255) bluebool = false;
+          } else {
+            blue -= 1;
+            if (blue == 0) bluebool = true;
+          }
+          if (true === leftBluebool) {
+            leftBlue += 1;
+            if (leftBlue == 255) leftBluebool = false;
+          } else {
+            leftBlue -= 1;
+            if (leftBlue == 0) leftBluebool = true;
+          }
+          setColor(red, green, blue, leftRed, leftGreen, leftBlue);
+        }, 30);
+      };
+
+      getColor();
+
+      setInterval(() => {});
+      document.addEventListener("keypress", (key) => {
+        if ("Space" === key.code) {
+          getColor();
+        }
+      });
+    });
+  </script>
+  <body>
+    <div id="right">#000000</div>
+    <div id="left">#000000</div>
+  </body>
+</html>
